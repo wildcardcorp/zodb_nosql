@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<!-- RelStorage configuration via ZConfig -->
+
+<component prefix="zodb_nosql.config">
+
+  <import package="ZODB"/>
+  <abstracttype name="zodb_nosql.adapter"/>
+
+  <sectiontype name="zodb_nosql" implements="ZODB.storage"
+      datatype=".NoSQLFactory">
+    <section type="zodb_nosql.adapter" name="*" attribute="adapter"/>
+    <key name="name" datatype="string" required="no"/>
+    <key name="read-only" datatype="boolean" default="false">
+      <description>See the RelStorage README.txt file.</description>
+    </key>
+    <key name="uri" datatype="string" default="couchdb://http://127.0.0.1:5984/">
+      <description>See the README.txt file.</description>
+    </key>
+    <key name="database" datatype="string" default="plone">
+      <description>See the README.txt file.</description>
+    </key>
+  </sectiontype>
+
+</component>
